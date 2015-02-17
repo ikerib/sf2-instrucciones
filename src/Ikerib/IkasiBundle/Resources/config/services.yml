@@ -1,0 +1,4 @@
+services:
+#    ikasi.example:
+#        class: Ikerib\IkasiBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

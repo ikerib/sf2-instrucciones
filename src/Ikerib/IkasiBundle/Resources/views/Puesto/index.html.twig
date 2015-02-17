@@ -1,0 +1,39 @@
+{% extends '::backend.html.twig' %}
+
+{% block content%}
+    <div class="row">
+        <h1>Lista de Puestos</h1>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-success" href="{{ path('admin_puesto_new') }}"><i class="fa fa-plus"> Nuevo Puesto</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="records_list table table-striped table-bordered table-hover table-responsive">
+            <thead>
+            <tr>
+                <th class="text-center">Puesto</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.name }}</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li>
+                                <a class="btn btn-info" href="{{ path('admin_puesto_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil-square-o">edit</i></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

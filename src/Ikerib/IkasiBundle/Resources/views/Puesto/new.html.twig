@@ -1,0 +1,49 @@
+{% extends '::backend.html.twig' %}
+
+{% block content%}
+    <div class="row">
+        <h1>Nuevo Puesto</h1>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-info" href="{{ path('puesto') }}"><i class="fa fa-arrow-circle-left"> Back</i></a>
+                <a class="btn btn-success btn-save" href="#"><i class="fa fa-floppy-o"> Save</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {{ form_start(form, {'attr': {'id': 'form_puesto_new'}} )}}
+        <div class="row">
+            {{ form_errors(form) }}
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                {{ form_row(form.name) }}
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        {{ form_end(form) }}
+    </div>
+
+
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                $('.btn-save').on('click', function() {
+                    var myform = $('#form_puesto_new');
+                    $(myform).submit();
+                });
+
+            });
+        </script>
+    {% endblock %}
+
+
+{% endblock %}

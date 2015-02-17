@@ -1,0 +1,25 @@
+{% extends '::backend.html.twig' %}
+
+{% block content%}
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-lg-4 text-center">
+    <h2>Questions</h2>
+    <p>Number of Questions: {{ numer_of_questions  | length }}</p>
+    <p>Number of Questions (enabled): {{ numer_of_questions_enabled  | length }}</p>
+    <p><a class="btn btn-lg btn-success" href="{{ path('question') }}" role="button">View</a></p>
+  </div>
+  <div class="col-lg-4 text-center">
+      <h2>Answers</h2>
+      <p>Number of Answers: {{ numer_of_answers  | length}}</p>
+      {# <p><a class="btn btn-lg btn-success" href="#" role="button">View</a></p> #}
+  </div>
+  <div class="col-lg-4 text-center">
+      <h2>Users</h2>
+      <p>Number of Users: {{ numer_of_users  | length}}</p>
+      {# <p><a class="btn btn-lg btn-success" href="#" role="button">View</a></p> #}
+  </div>
+</div>
+{% endblock %}

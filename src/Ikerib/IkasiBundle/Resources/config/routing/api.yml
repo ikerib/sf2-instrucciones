@@ -1,0 +1,3 @@
+api_puestos:
+    path:     /puestos
+    defaults: { _controller: "IkasiBundle:Api:getpuestos" }

@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+  {% stylesheets output='css/ikasplay.css' filter='cssrewrite' debug=false
+    '@bootstrap_css'
+  -%}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
+      <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block body -%}
+    <div id="page-inner">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+  {% javascripts output='js/main.js' debug=false
+    '@bootstrap_js'
+ -%}
+      <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}

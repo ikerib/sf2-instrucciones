@@ -1,0 +1,53 @@
+{% extends '::backend.html.twig' %}
+
+{% block content%}
+    <div class="row">
+        <h1>Question list</h1>
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-success" href="{{ path('question_new') }}"><i class="fa fa-plus"> Add New</i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="records_list table table-striped table-bordered table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Question</th>
+                    <th class="text-center">Slug</th>
+                    <th class="text-center">Enabled</th>
+                    <th class="text-center">Puesto</th>
+                    <th class="text-center">Image</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td class="text-center">{{ entity.id }}</td>
+                    <td>{{ entity.question }}</td>
+                    <td>{{ entity.slug }}</td>
+                    <td class="text-center">{% if entity.enabled == 1%}<i class="fa fa-check-square-o"></i>{% else %}<i class="fa fa-square-o"></i>{% endif %}</td>
+                    <td class="text-center">{% if entity.puesto %}{{ entity.puesto }}{% endif %}</td>
+                    {% if entity.imageName %}
+                        <td><img src="{{ vich_uploader_asset(entity, 'imageFile') | imagine_filter('my_thumb')}}" alt="" /></td>
+                    {% else %}
+                        <td>&nbsp;</td>
+                    {% endif %}
+                    <td>
+                    <ul class="list-inline">
+                         <li>
+                            <a class="btn btn-info" href="{{ path('question_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil-square-o">edit</i></a>
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% endblock %}

@@ -1,0 +1,29 @@
+ikasi_admin_puesto:
+    resource: "@IkasiBundle/Resources/config/routing/puesto.yml"
+    prefix:   /admin/puesto
+
+ikasi_admin_answer:
+    resource: "@IkasiBundle/Resources/config/routing/answer.yml"
+    prefix:   /admin/answer
+
+admin_dashboard:
+    path:     /admin/
+    defaults: { _controller: "IkasiBundle:Admin:index" }
+
+ikasi_question:
+    resource: "@IkasiBundle/Resources/config/routing/question.yml"
+    prefix:   /admin/question
+
+ikasi_homepage:
+    path:     /{page}
+    defaults: { _controller: IkasiBundle:Frontend:index, page:0 }
+    requirements: { page: \d+ }
+
+answer_check:
+    path: /quizz/check/{page}
+    defaults: { _controller: IkasiBundle:Frontend:check}
+    requirements: { _method: post }
+
+test_finish:
+    path: /quizz/finished
+    defaults: { _controller: IkasiBundle:Frontend:finished}

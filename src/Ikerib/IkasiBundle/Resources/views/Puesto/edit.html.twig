@@ -1,0 +1,42 @@
+{% extends '::backend.html.twig' %}
+
+{% block content%}
+    <div class="row">
+        <h1>Editar puesto</h1>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a class="btn btn-info" href="{{ path('puesto') }}"><i class="fa fa-arrow-circle-left"> Back</i></a>
+                <a id="btn-delete" class="btn btn-danger" href="#"><i class="fa fa-times"> Delete</i></a>
+                <a id="btn-save"   class="btn btn-success" href="#"><i class="fa fa-floppy-o"> Save</i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        {{ form_start(edit_form, {'attr': {'id': 'form_question_edit'}} )}}
+        <div class="row">
+            {{ form_errors(edit_form) }}
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{ form_row(edit_form.name, { 'label' : 'Puesto:' }) }}
+            </div>
+        </div>
+
+        <div style="display:none;">
+            {{ form_row(edit_form.submit, { 'label': 'Submit' }) }}
+        </div>
+
+        <div>
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+
+    <div style="display:none;">
+        {{ form(delete_form, {'attr': {'id': 'form_puesto_delete'}}) }}
+    </div>
+
+{% endblock %}

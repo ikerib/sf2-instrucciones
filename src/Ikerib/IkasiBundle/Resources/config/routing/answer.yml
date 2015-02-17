@@ -1,0 +1,30 @@
+admin_answer:
+    path:     /
+    defaults: { _controller: "IkasiBundle:Answer:index" }
+
+admin_answer_show:
+    path:     /{id}/show
+    defaults: { _controller: "IkasiBundle:Answer:show" }
+
+admin_answer_new:
+    path:     /new
+    defaults: { _controller: "IkasiBundle:Answer:new" }
+
+admin_answer_create:
+    path:     /create
+    defaults: { _controller: "IkasiBundle:Answer:create" }
+    requirements: { _method: post }
+
+admin_answer_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "IkasiBundle:Answer:edit" }
+
+admin_answer_update:
+    path:     /{id}/update
+    defaults: { _controller: "IkasiBundle:Answer:update" }
+    requirements: { _method: post|put }
+
+admin_answer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "IkasiBundle:Answer:delete" }
+    requirements: { _method: post|delete }

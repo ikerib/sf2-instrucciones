@@ -1,0 +1,26 @@
+question:
+    path:     /
+    defaults: { _controller: "IkasiBundle:Question:index" }
+
+question_new:
+    path:     /new
+    defaults: { _controller: "IkasiBundle:Question:new" }
+
+question_create:
+    path:     /create
+    defaults: { _controller: "IkasiBundle:Question:create" }
+    requirements: { _method: post }
+
+question_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "IkasiBundle:Question:edit" }
+
+question_update:
+    path:     /{id}/update
+    defaults: { _controller: "IkasiBundle:Question:update" }
+    requirements: { _method: post|put }
+
+question_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "IkasiBundle:Question:delete" }
+    requirements: { _method: post|delete }

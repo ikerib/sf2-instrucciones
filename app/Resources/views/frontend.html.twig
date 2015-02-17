@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+  {% stylesheets output='css/ikasplay_frontend.css' filter='cssrewrite,?yui_css'  debug=true
+    '@frontend_css'
+  -%}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+
+  {% endstylesheets %}
+{% endblock %}
+
+{% block body -%}
+      <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">#IkasPlay</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./">Logged as {{ app.user.username }} </a></li>
+            <li class="active"><a href="{{ path ('fos_user_security_logout') }}">Logout <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset('js/jquery.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+  {% javascripts output='js/ikasplay_frontend.js' debug=true filter='?yui_js'
+    '@frontend_js'
+ -%}
+      <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}
